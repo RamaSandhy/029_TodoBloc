@@ -28,4 +28,14 @@ class TodoPage extends StatelessWidget {
                             if (state.selectedDate == null) {
                               return Text('No date selected');
                             }
+                            return Text('${state.selectedDate.day}/${state.selectedDate.month}/${state.selectedDate.year}');
+                          }
+                          return Text('No date selected');
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 36.0),
 
