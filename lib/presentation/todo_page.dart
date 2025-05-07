@@ -51,4 +51,11 @@ class TodoPage extends StatelessWidget {
                           context.read<TodoBloc>().add(
                             TodoSelectDate(date: selectedDate),
                           );
+                          }
+                      });
+                    },
+                    child: Text('Select Date'),
+                  ),
+                ],
+              ),
 
