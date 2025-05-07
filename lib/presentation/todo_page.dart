@@ -68,4 +68,15 @@ class TodoPage extends StatelessWidget {
                         decoration: InputDecoration(
                           hintText: 'Input Task',
                         ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a task';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
