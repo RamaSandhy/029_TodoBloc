@@ -17,4 +17,15 @@ class TodoPage extends StatelessWidget {
           child: Column(
             children: [
               Text('Todo List'),
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Text('Selected Date'),
+                      BlocBuilder<TodoBloc, TodoState>(
+                        builder: (context, state) {
+                          if (state is TodoLoaded) {
+                            if (state.selectedDate == null) {
+                              return Text('No date selected');
+                            }
 
