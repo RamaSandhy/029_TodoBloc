@@ -105,4 +105,17 @@ class TodoPage extends StatelessWidget {
                       if (state.todos.isEmpty) {
                         return Center(child: Text('Todo list is empty'));
                       }
+                      return ListView.builder(
+                        itemCount: state.todos.length,
+                        itemBuilder: (context, index) {
+                          final todo = state.todos[index];
+                          return Card(
+                            margin: EdgeInsets.only(bottom: 8.0),
+                            child: ListTile(
+                              title: Text(todo.title),
+                              subtitle: Row(
+                                children: [
+                                  Text('${todo.date.day}/${todo.date.month}/${todo.date.year}'),
+                                ],
+                              ),
 
