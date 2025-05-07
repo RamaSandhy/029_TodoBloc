@@ -58,4 +58,14 @@ class TodoPage extends StatelessWidget {
                   ),
                 ],
               ),
+              Form(
+                key: key,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        controller: controller,
+                        decoration: InputDecoration(
+                          hintText: 'Input Task',
+                        ),
 
