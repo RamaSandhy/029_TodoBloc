@@ -90,4 +90,12 @@ class TodoPage extends StatelessWidget {
                           date: state.selectedDate!,
                         ),
                       );
+                      controller.clear();
+                      state.selectedDate = null;
+                    }
+                  }
+                },
+                child: Text('Tambah'),
+              ),
+              SizedBox(height: 16.0),
 
