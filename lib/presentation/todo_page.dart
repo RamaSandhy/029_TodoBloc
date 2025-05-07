@@ -46,4 +46,9 @@ class TodoPage extends StatelessWidget {
                         context: context,
                         firstDate: DateTime.now(),
                         lastDate: DateTime(2025),
+                        ).then((selectedDate) {
+                        if (selectedDate != null) {
+                          context.read<TodoBloc>().add(
+                            TodoSelectDate(date: selectedDate),
+                          );
 
