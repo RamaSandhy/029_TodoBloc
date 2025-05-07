@@ -79,4 +79,15 @@ class TodoPage extends StatelessWidget {
                   ],
                 ),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  if (key.currentState!.validate()) {
+                    final state = context.read<TodoBloc>().state;
+                    if (state is TodoLoaded) {
+                      context.read<TodoBloc>().add(
+                        TodoEventAdd(
+                          title: controller.text,
+                          date: state.selectedDate!,
+                        ),
+                      );
 
