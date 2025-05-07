@@ -126,4 +126,12 @@ class TodoPage extends StatelessWidget {
                                   );
                                 },
                               ),
+                              tileColor: todo.isCompleted
+                                  ? Colors.green
+                                  : Colors.red,
+                            ),
+                          );
+                        },
+                      );
+                    }
 
