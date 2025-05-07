@@ -118,4 +118,12 @@ class TodoPage extends StatelessWidget {
                                   Text('${todo.date.day}/${todo.date.month}/${todo.date.year}'),
                                 ],
                               ),
+                              trailing: Checkbox(
+                                value: todo.isCompleted,
+                                onChanged: (value) {
+                                  context.read<TodoBloc>().add(
+                                    TodoEventComplete(index: index),
+                                  );
+                                },
+                              ),
 
