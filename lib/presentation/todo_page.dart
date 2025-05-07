@@ -98,4 +98,11 @@ class TodoPage extends StatelessWidget {
                 child: Text('Tambah'),
               ),
               SizedBox(height: 16.0),
+              Expanded(
+                child: BlocBuilder<TodoBloc, TodoState>(
+                  builder: (context, state) {
+                    if (state is TodoLoaded) {
+                      if (state.todos.isEmpty) {
+                        return Center(child: Text('Todo list is empty'));
+                      }
 
