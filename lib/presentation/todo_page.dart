@@ -30,25 +30,34 @@ class TodoPage extends StatelessWidget {
                     children: [
                       Text('Selected Date'),
                       BlocBuilder<TodoBloc, TodoState>(
-  builder: (context, state) {
-    if (state is TodoLoaded) {
-      if (state.selectedDate != null) {
-        return Text(
-          '${state.selectedDate!.day}/${state.selectedDate!.month}/${state.selectedDate!.year}',
-        );
-      } else {
-        return Text('No date selected');
-      }
-    }
-    return CircularProgressIndicator();
-  },
-)
-
-                    ],
+                    builder: (context, state) {
+                      if (state is TodoLoaded) {
+                        if (state.selectedDate == null) {
+                          return const Text(
+                            'No date selected',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          );
+                        }
+                        return Text(
+                          '${state.selectedDate!.day}/${state.selectedDate!.month}/${state.selectedDate!.year}',
+                          style: const TextStyle(fontSize: 14),
+                        );
+                      }
+                      return const Text(
+                        'No date selected',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
-              SizedBox(height: 36.0),
+              const SizedBox(height: 24),
               Column(
                 children: [
                   ElevatedButton(
@@ -56,8 +65,9 @@ class TodoPage extends StatelessWidget {
                       showDatePicker(
                         context: context,
                         firstDate: DateTime.now(),
-                        lastDate: DateTime(2025),
-                        ).then((selectedDate) {
+                        lastDate: DateTime(2100), // batas atas lebih besar dari hari ini
+                        )
+                        .then((selectedDate) {
                         if (selectedDate != null) {
                           context.read<TodoBloc>().add(
                             TodoSelectDate(date: selectedDate),
@@ -78,7 +88,7 @@ class TodoPage extends StatelessWidget {
                 ],
               ),
               Form(
-                key: key,
+                key: _key,
                 child: Row(
                   children: [
                     Expanded(
@@ -86,7 +96,7 @@ class TodoPage extends StatelessWidget {
                         controller: _controller,
                         decoration: InputDecoration(
                           hintText: 'Input Task',
-                        ),
+                        ),     
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter a task';
@@ -134,7 +144,7 @@ class TodoPage extends StatelessWidget {
                               title: Text(todo.title),
                               subtitle: Row(
                                 children: [
-                                  Text('${todo.date.day}/${todo.date.month}/${todo.date.year}'),
+                                  Text('${todo.date!.day}/${todo.date!.month}/${todo.date!.year}'),
                                 ],
                               ),
                               trailing: Checkbox(
@@ -165,4 +175,3 @@ class TodoPage extends StatelessWidget {
     );
   }
 }
-
