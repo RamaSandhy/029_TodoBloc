@@ -16,9 +16,15 @@ class TodoPage extends StatelessWidget {
           padding: EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text('Todo List'),
-              Row(
-                children: [
+              const Text(
+                'Todo List',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
                   Column(
                     children: [
                       Text('Selected Date'),
