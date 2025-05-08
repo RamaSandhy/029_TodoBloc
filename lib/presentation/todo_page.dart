@@ -26,6 +26,7 @@ class TodoPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text('Selected Date'),
                       BlocBuilder<TodoBloc, TodoState>(
