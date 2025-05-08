@@ -68,7 +68,7 @@ class TodoPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: TextFormField(
-                        controller: controller,
+                        controller: _controller,
                         decoration: InputDecoration(
                           hintText: 'Input Task',
                         ),
@@ -85,16 +85,16 @@ class TodoPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (key.currentState!.validate()) {
+                  if (_key.currentState!.validate()) {
                     final state = context.read<TodoBloc>().state;
                     if (state is TodoLoaded) {
                       context.read<TodoBloc>().add(
                         TodoEventAdd(
-                          title: controller.text,
+                          title: _controller.text,
                           date: state.selectedDate!,
                         ),
                       );
-                      controller.clear();
+                      _controller.clear();
                       state.selectedDate = null;
                     }
                   }
