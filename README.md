@@ -1,3 +1,4 @@
 Hasil Running
 
-![Screenshot 2025-05-08 235810](https://github.com/user-attachments/assets/7d2b64e4-2225-4ffa-96fe-db1d133344ca)
+![Screenshot 2025-05-09 000250](https://github.com/user-attachments/assets/3ef67a0e-4606-4fb7-addf-2a68d1bb1d8c)
+
