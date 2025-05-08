@@ -65,6 +65,14 @@ class TodoPage extends StatelessWidget {
                           }
                       });
                     },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      backgroundColor: Colors.grey[200],
+                      foregroundColor: Colors.purple,
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    ),
                     child: Text('Select Date'),
                   ),
                 ],
